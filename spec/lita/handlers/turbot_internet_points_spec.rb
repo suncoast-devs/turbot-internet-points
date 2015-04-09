@@ -11,7 +11,7 @@ describe Lita::Handlers::TurbotInternetPoints, lita_handler: true do
 
   it 'increments someones points when they are @mentioned with a ++' do
     increment
-    expect(replies.last).to eq "@turbot has earned their first Internet Point. /golfclap"
+    expect(replies.last).to eq ":golf::clap: @turbot's earned their first Internet Point. :golf::clap:"
   end
 
   it 'sums the increments as they come in' do

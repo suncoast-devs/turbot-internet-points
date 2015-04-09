@@ -30,9 +30,7 @@ class Incrementer
   end
 
   def reply
-    if point_count == 1
-      "#{username} has earned their first Internet Point. /golfclap"
-    elsif not_a_milestone?
+    if not_a_milestone?
       "#{username} has #{point_count} Internet Points."
     else
       translation_for_milestone
