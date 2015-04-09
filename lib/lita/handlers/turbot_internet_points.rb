@@ -2,7 +2,8 @@ module Lita
   module Handlers
     class TurbotInternetPoints < Handler
 
-      route(/<@(\w*)>\+\+/, :increment_points)
+      route(/<@(\w*)>\:?\s?\+\+/, :increment_points)
+      route(/\+\+<@(\w*)>/, :increment_points)
 
       def increment_points(response)
         Incrementer.new(response, self).tap do |incrementer|
@@ -29,8 +30,10 @@ class Incrementer
   end
 
   def reply
-    if not_a_milestone?
-      "#{username}'s now: #{point_count}"
+    if point_count == 1
+      "#{username} has earned their first Internet Point. /golfclap"
+    elsif not_a_milestone?
+      "#{username} has #{point_count} Internet Points."
     else
       translation_for_milestone
     end

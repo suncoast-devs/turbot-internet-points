@@ -11,12 +11,22 @@ describe Lita::Handlers::TurbotInternetPoints, lita_handler: true do
 
   it 'increments someones points when they are @mentioned with a ++' do
     increment
-    expect(replies.last).to eq "@turbot's now: 1"
+    expect(replies.last).to eq "@turbot has earned their first Internet Point. /golfclap"
   end
 
   it 'sums the increments as they come in' do
     2.times { increment }
-    expect(replies.last).to eq "@turbot's now: 2"
+    expect(replies.last).to eq "@turbot has 2 Internet Points."
+  end
+
+  it 'handles alternative ways of formatting the increments' do
+    2.times { send_message("<@AAAAAAAA>: ++") }
+    expect(replies.last).to eq "@turbot has 2 Internet Points."
+  end
+
+  it 'handles pre-increment' do
+    2.times { send_message("++<@AAAAAAAA>") }
+    expect(replies.last).to eq "@turbot has 2 Internet Points."
   end
 
   it 'displays a landmark message when the person is incremented to 10' do
