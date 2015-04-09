@@ -1,0 +1,7 @@
+en:
+  lita:
+    handlers:
+      turbot_internet_points:
+        points:
+          at_10: ":rooster: %{username}'s a darn tootin' karma machine! :rooster:"
+          at_50: ":dromedary_camel: %{username}'s a karma sluggin' juggernaut :dromedary_camel:"
