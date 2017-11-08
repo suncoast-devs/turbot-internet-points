@@ -1,5 +1,6 @@
 # lita-turbot-internet-points
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/suncoast-devs/lita-turbot-internet-points.png?branch=master)](https://travis-ci.org/suncoast-devs/lita-turbot-internet-points)
 [![Coverage Status](https://coveralls.io/repos/suncoast-devs/lita-turbot-internet-points/badge.png)](https://coveralls.io/r/suncoast-devs/lita-turbot-internet-points)
 
