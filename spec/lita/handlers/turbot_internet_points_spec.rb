@@ -1,12 +1,8 @@
 require "spec_helper"
 
 describe Lita::Handlers::TurbotInternetPoints, lita_handler: true do
-  before(:each) do
-    Lita::User.create('AAAAAAAA', mention_name: 'turbot', name: 'Turbot')
-  end
-
   def increment
-    send_message("<@AAAAAAAA>++")
+    send_message("@turbot++")
   end
 
   it 'increments someones points when they are @mentioned with a ++' do
@@ -20,12 +16,12 @@ describe Lita::Handlers::TurbotInternetPoints, lita_handler: true do
   end
 
   it 'handles alternative ways of formatting the increments' do
-    2.times { send_message("<@AAAAAAAA>: ++") }
+    2.times { send_message("@turbot: ++") }
     expect(replies.last).to eq "@turbot has 2 Internet Points."
   end
 
   it 'handles pre-increment' do
-    2.times { send_message("++<@AAAAAAAA>") }
+    2.times { send_message("++@turbot") }
     expect(replies.last).to eq "@turbot has 2 Internet Points."
   end
 

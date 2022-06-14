@@ -2,8 +2,8 @@ module Lita
   module Handlers
     class TurbotInternetPoints < Handler
 
-      route(/<@(\w*)>\:?\s?\+\+/, :increment_points)
-      route(/\+\+<@(\w*)>/, :increment_points)
+      route(/(@[\w|]*)\:?\s?\+\+/, :increment_points)
+      route(/\+\+(@[\w|]*)/, :increment_points)
 
       def increment_points(response)
         Incrementer.new(response, self).tap do |incrementer|
@@ -56,10 +56,6 @@ class Incrementer
   end
 
   def username
-    "@" + Lita::User.find_by_id(user_id).mention_name
-  end
-
-  def user_id
     @response.pattern.match(@response.message.body)[1]
   end
 end
